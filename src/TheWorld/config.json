@@ -1,0 +1,8 @@
+{
+  "AppSettings": {
+    "SiteEmailAddress": "drichardson@fncinc.com"
+  },
+  "Data": {
+      "WorldContextConnection" : "Server=(local);Database=TheWorldDb;Trusted_Connection=true;"
+  }
+}
