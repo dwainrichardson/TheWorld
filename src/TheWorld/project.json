@@ -11,8 +11,9 @@
     "Microsoft.Framework.Runtime.Abstractions": "1.0.0-beta5",
     "EntityFramework.SqlServer": "7.0.0-beta5",
     "EntityFramework.Commands": "7.0.0-beta5",
-    
-    "ServiceStack.Redis": "4.0.44"
+
+    "ServiceStack.Redis": "4.0.44",
+    "AutoMapper" : "4.0.4"
 
   },
 
@@ -29,15 +30,8 @@
         "EntityFramework.Commands": "7.0.0-beta5",
         "ServiceStack.Redis":"4.0.44" 
       }
-    },
-    "dnxcore50": {
-      "dependencies": {
-        "EntityFramework.Commands": "7.0.0-beta5",
-        "EntityFramework.Core": "7.0.0-beta5",
-        "Microsoft.Framework.Configuration.Json": "1.0.0-beta5",
-        "ServiceStack.Redis": "4.0.44"
-      }
     }
+
   },
 
   "publishExclude": [

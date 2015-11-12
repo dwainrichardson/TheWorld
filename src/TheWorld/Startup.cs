@@ -4,12 +4,14 @@ using TheWorld.Services;
 using Microsoft.Framework.Configuration;
 using Microsoft.Framework.Runtime;
 using TheWorld.Models;
+using AutoMapper;
+using TheWorld.ViewModels;
 
 namespace TheWorld
 {
     public class Startup
     {
-        public static IConfiguration  Configuration;
+        public static Microsoft.Framework.Configuration.IConfiguration Configuration;
 
         public Startup(IApplicationEnvironment appEnv)
         {
@@ -25,6 +27,7 @@ namespace TheWorld
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
             services.AddLogging();
             services.AddEntityFramework()
                 .AddSqlServer().
@@ -32,7 +35,7 @@ namespace TheWorld
            // if (env.IsDevelopment())
             //{
              services.AddScoped<IMailService, DebugMailService>();
-
+            services.AddScoped<IWorldRepository, WorldRepository>();
            // }
             //else
             //{
@@ -46,7 +49,11 @@ namespace TheWorld
         {
 
             app.UseStaticFiles();
-            
+            Mapper.Initialize(cfg =>
+            {
+                cfg.CreateMap<Trip, TripViewModel>().ReverseMap();
+            });
+
             app.UseMvc(config => {
                 config.MapRoute(
                     name: "DefaultRoute",
